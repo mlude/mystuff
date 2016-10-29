@@ -1,0 +1,12 @@
+$OpenBSD$
+--- libhtp/htp/Makefile.in.orig	Mon May 16 15:28:39 2016
++++ libhtp/htp/Makefile.in	Mon May 16 15:30:43 2016
+@@ -366,7 +366,7 @@ libhtp_c_la_SOURCES = $(h_sources) $(h_sources_private
+ lib_LTLIBRARIES = libhtp.la
+ libhtp_la_SOURCES = 
+ libhtp_la_LIBADD = libhtp-c.la
+-libhtp_la_LDFLAGS = -version-info $(GENERIC_LIBRARY_VERSION) -release $(GENERIC_RELEASE)
++libhtp_la_LDFLAGS = -version-info $(GENERIC_LIBRARY_VERSION)
+ all: all-am
+ 
+ .SUFFIXES:
