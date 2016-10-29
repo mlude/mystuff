@@ -1,6 +1,6 @@
 $OpenBSD$
 
-second hunk from Jason Ish
+third hunk from Jason Ish
 
 --- configure.ac.orig	Mon May 16 14:51:55 2016
 +++ configure.ac	Mon May 16 14:55:51 2016
