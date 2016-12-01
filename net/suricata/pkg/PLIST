@@ -23,6 +23,7 @@ lib/libhtp.a
 lib/libhtp.la
 @lib lib/libhtp.so.${LIBhtp_VERSION}
 lib/pkgconfig/htp.pc
+@man man/man1/suricata.1
 share/doc/suricata/
 share/doc/suricata/AUTHORS
 share/doc/suricata/Basic_Setup.txt

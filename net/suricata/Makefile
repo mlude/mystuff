@@ -2,7 +2,7 @@
 
 COMMENT =		next generation IDS/IPS engine
 
-DISTNAME = 		suricata-3.1.3
+DISTNAME = 		suricata-3.2
 MASTER_SITES = 		http://www.openinfosecfoundation.org/download/
 
 CATEGORIES =		net security mystuff
