@@ -1,0 +1,15 @@
+$OpenBSD$
+
+syslog entries should contain software name
+
+--- src/lib/Gitolite/Common.pm.orig	Thu Sep  8 18:12:09 2016
++++ src/lib/Gitolite/Common.pm	Mon Jan 16 11:40:58 2017
+@@ -329,7 +329,7 @@ sub gl_log {
+ }
+ 
+ sub logger_plus_stderr {
+-    open my $fh, "|-", "logger" or confess "it's really not my day is it...?\n";
++    open my $fh, "|-", "logger", "-t gitolite" or confess "it's really not my day is it...?\n";
+     for (@_) {
+         print STDERR "FATAL: $_\n";
+         print $fh "FATAL: $_\n";
