@@ -1,0 +1,19 @@
+$OpenBSD$
+
+if ssh key contains option already, handle them
+
+--- src/triggers/post-compile/ssh-authkeys.orig	Thu Sep  8 18:12:09 2016
++++ src/triggers/post-compile/ssh-authkeys	Mon Jan 16 11:08:55 2017
+@@ -137,6 +137,11 @@ sub optionise {
+         return '';
+     }
+     chomp(@line);
+-    return "command=\"$glshell $user" . ( $kfn ? " $f" : "" ) . "\",$auth_options $line[0]";
++    my $key = $line[0];
++    my $key_options = "";
++    if ($key =~ /(\S+?) ((?:ssh|ecdsa)-.*)$/) {
++       ($key_options, $key) = (',' . $1, $2);
++    }
++    return "command=\"$glshell $user" . ( $kfn ? " $f" : "" ) . "\",$auth_options$key_options $key";
+ }
+ 
