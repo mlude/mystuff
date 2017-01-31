@@ -2,14 +2,22 @@ $OpenBSD$
 
 syslog entries should contain software name
 
+from Sitaram Chamarty
+
 --- src/lib/Gitolite/Common.pm.orig	Thu Sep  8 18:12:09 2016
-+++ src/lib/Gitolite/Common.pm	Mon Jan 16 11:40:58 2017
-@@ -329,7 +329,7 @@ sub gl_log {
++++ src/lib/Gitolite/Common.pm	Tue Jan 31 00:42:37 2017
+@@ -329,10 +329,12 @@ sub gl_log {
  }
  
  sub logger_plus_stderr {
 -    open my $fh, "|-", "logger" or confess "it's really not my day is it...?\n";
-+    open my $fh, "|-", "logger", "-t gitolite" or confess "it's really not my day is it...?\n";
++    require Sys::Syslog;
++    Sys::Syslog->import(qw(:standard));
++    openlog("gitolite", "pid", "local0");
      for (@_) {
          print STDERR "FATAL: $_\n";
-         print $fh "FATAL: $_\n";
+-        print $fh "FATAL: $_\n";
++        syslog( 'err', "%s", $_);
+     }
+     exit 1;
+ }
