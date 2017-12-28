@@ -1,0 +1,187 @@
+$OpenBSD$
+
+Index: src/logcheck
+--- src/logcheck.orig
++++ src/logcheck
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/local/bin/bash
+ #
+ # Copyright (C) 2004-2012,2014,2017 Debian Logcheck Team
+ #                                   <logcheck-devel@alioth.lists.debian.org>
+@@ -24,20 +24,13 @@
+ 
+ if [ `id -u` = 0 ]; then
+     echo "logcheck should not be run as root. Use su to invoke logcheck:"
+-    echo "su -s /bin/bash -c \"/usr/sbin/logcheck${@:+ $@}\" logcheck"
+-    echo "Or use sudo: sudo -u logcheck logcheck${@:+ $@}."
++    echo "su -s /usr/local/bin/bash _logcheck \"/usr/local/bin/logcheck${@:+ $@}\""
++    echo "Or use doas: doas -u _logcheck logcheck${@:+ $@}."
+     # you may want to uncomment that hack to let logcheck invoke itself.
+     # su -s /bin/bash -c "$0 $*" logcheck
+     exit 1
+ fi
+ 
+-if [ ! -f /usr/bin/lockfile-create -o \
+-     ! -f /usr/bin/lockfile-remove -o \
+-     ! -f /usr/bin/lockfile-touch ]; then
+-    echo "fatal: lockfile-progs is a prerequisite for logcheck, and was not found."
+-    exit 1
+-fi
+-
+ # Set the umask
+ umask 077
+ 
+@@ -71,11 +64,11 @@ ADDTAG="no"
+ # Set the default paths
+ RULEDIR="/etc/logcheck"
+ CONFFILE="/etc/logcheck/logcheck.conf"
+-STATEDIR="/var/lib/logcheck"
++STATEDIR="/var/cache/logcheck"
+ LOGFILES_LIST="/etc/logcheck/logcheck.logfiles"
+ LOGFILES_LIST_D="/etc/logcheck/logcheck.logfiles.d"
+-LOGFILE_FALLBACK="/var/log/syslog"
+-LOGTAIL="/usr/sbin/logtail2"
++LOGFILE_FALLBACK="/var/log/messages"
++LOGTAIL="/usr/local/bin/logtail2"
+ CAT="/bin/cat"
+ SYSLOG_SUMMARY="/usr/bin/syslog-summary"
+ 
+@@ -90,22 +83,17 @@ FQDN=0
+ SORTUNIQ=0
+ SUPPORT_CRACKING_IGNORE=0
+ SYSLOGSUMMARY=0
+-LOCKDIR=/run/lock/logcheck
++LOCKDIR=/var/cache/logcheck
+ LOCKFILE="$LOCKDIR/logcheck"
+ 
+ # Carry out the clean up tasks
+ cleanup() {
+ 
+-    if [ -n "$LOCK" ]; then
+-        debug "cleanup: Killing lockfile-touch - $LOCK"
+-	kill "$LOCK" && unset LOCK
++    if [ -f "$LOCKFILE" ]; then
++        debug "cleanup: Removing lockfile: $LOCKFILE"
++	rm -f "$LOCKFILE"
+     fi
+ 
+-    if [ -f "$LOCKFILE.lock" ]; then
+-        debug "cleanup: Removing lockfile: $LOCKFILE.lock"
+-	lockfile-remove "$LOCKFILE"
+-    fi
+-
+     if [ -d "$TMPDIR" ]; then
+         # Remove the tmp directory
+         if [ "$NOCLEANUP" -eq 0 ];then
+@@ -145,14 +133,9 @@ error() {
+     if [ "$2" = "noclean" ]; then
+ 	debug "error: Not removing lockfile"
+     else
+-        if [ -n "$LOCK" ]; then
+-	    debug "error: Killing lockfile-touch - $LOCK"
+-	    kill "$LOCK" && unset LOCK
+-	fi
+-
+-       if [ -f "$LOCKFILE.lock" ]; then
+-           debug "error: Removing lockfile: $LOCKFILE.lock"
+-           lockfile-remove "$LOCKFILE"
++       if [ -f "$LOCKFILE" ]; then
++           debug "error: Removing lockfile: $LOCKFILE"
++           rm -f "$LOCKFILE"
+        fi
+ 
+     fi
+@@ -223,12 +206,12 @@ cleanrules() {
+ 			error "Couldn't read $x"
+ 		fi
+ 	done
+-	for rulefile in $(run-parts --list "$dir"); do
++	for rulefile in $(ls -1R "$dir"); do
+ 	    rulefile="$(basename "$rulefile")"
+ 	    if [ -f "${dir}/${rulefile}" ]; then
+ 		debug "cleanrules: ${dir}/${rulefile}"
+ 		# pipe to cat on greps to get usable exit status
+-		egrep --text -v '^[[:space:]]*$|^#' "$dir/$rulefile" | cat \
++		egrep -a -v '^[[:space:]]*$|^#' "$dir/$rulefile" | cat \
+ 			>> "$cleaned/$rulefile" \
+ 		|| error "Couldn't append to $cleaned/$rulefile."
+ 	    fi
+@@ -330,7 +313,7 @@ greplogoutput() {
+ 	debug "greplogoutput: $grepfile"
+ 
+ 	# Raise entries that match
+-	egrep --text -f "$raise/$grepfile" "$TMPDIR/logoutput-sorted" | cat \
++	egrep -a -f "$raise/$grepfile" "$TMPDIR/logoutput-sorted" | cat \
+ 	    > "$TMPDIR/checked" \
+ 	    || error "Could not output to $TMPDIR/checked."
+ 
+@@ -407,7 +390,7 @@ cleanchecked() {
+ 
+     if [ -f "$clean" ]; then
+ 	debug "cleanchecked - file: $clean"
+-        egrep --text -v -f "$clean" "$TMPDIR/checked" | cat >> "$TMPDIR/checked.1"  \
++        egrep -a -v -f "$clean" "$TMPDIR/checked" | cat >> "$TMPDIR/checked.1"  \
+ 	    || error "Could not output to $TMPDIR/checked.1."
+ 	mv "$TMPDIR/checked.1" "$TMPDIR/checked" \
+ 	    || error "Could not move $TMPDIR/checked.1 to $TMPDIR/checked"
+@@ -415,7 +398,7 @@ cleanchecked() {
+ 	debug "cleanchecked - dir - $clean"
+ 	for file in $(ls -1 "$clean/"); do
+ 	debug "cleanchecked - dir - $clean/$file"
+-	    egrep --text -v -f "$clean/$file" "$TMPDIR/checked" | cat \
++	    egrep -a -v -f "$clean/$file" "$TMPDIR/checked" | cat \
+ 		>> "$TMPDIR/checked.1" \
+ 		    || error "Could not output to TMPDIR/checked.1."
+ 	    mv "$TMPDIR/checked.1" "$TMPDIR/checked" \
+@@ -538,9 +521,9 @@ fi
+ 
+ # Hostname either fully qualified or not.
+ if [ "$FQDN" -eq 1 ]; then
+-        HOSTNAME="$(hostname --fqdn 2>/dev/null)"
++        HOSTNAME="$(hostname 2>/dev/null)"
+ else
+-        HOSTNAME="$(hostname --short 2>/dev/null)"
++        HOSTNAME="$(hostname -s 2>/dev/null)"
+ fi
+ 
+ # Now check for the other options
+@@ -623,25 +606,20 @@ fi
+ 
+ trap 'cleanup' 0
+ 
+-debug "Trying to get lockfile: $LOCKFILE.lock"
++debug "Trying to get lockfile: $LOCKFILE"
+ if [ ! -d "$LOCKDIR" ]; then
+ 	mkdir -m 0755 "$LOCKDIR"
+ fi
+-lockfile-create --retry 1 "$LOCKFILE" > /dev/null 2>&1
++lockfile -r 1 "$LOCKFILE" > /dev/null 2>&1
+ 
+ 
+ if [ $? -eq 1 ]; then
+     trap 0
+-    if [ -e "${LOCKFILE}.lock" ]; then
++    if [ -e "${LOCKFILE}" ]; then
+         error "Another logcheck process is still running" "noclean"
+     else
+-        error "Failed to get lockfile: $LOCKFILE.lock" "noclean"
++        error "Failed to get lockfile: $LOCKFILE" "noclean"
+     fi
+-
+-else
+-    debug "Running lockfile-touch $LOCKFILE.lock"
+-    lockfile-touch "$LOCKFILE" &
+-    LOCK="$!"
+ fi
+ 
+ # Create the secure temporary directory or exit
+@@ -675,7 +653,7 @@ if [ ! "$LOGFILE" ] && [ -n "$LOGFILES" ]; then
+     SAVEIFS=$IFS; IFS=$(echo -en "\n\b");
+     for file_list in ${LOGFILES} ; do
+         if [ -f  "$file_list" ] ; then
+-            for file in $(egrep --text -v -h "(^#|^[[:space:]]*$)" "$file_list"); do
++            for file in $(egrep -a -v -h "(^#|^[[:space:]]*$)" "$file_list"); do
+                 logoutput "$file"
+             done
+         else

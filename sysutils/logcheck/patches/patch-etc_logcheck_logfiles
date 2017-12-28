@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: etc/logcheck.logfiles
+--- etc/logcheck.logfiles.orig
++++ etc/logcheck.logfiles
+@@ -1,4 +1,8 @@
+ # these files will be checked by logcheck
+ # This has been tuned towards a default syslog install
+-/var/log/syslog
+-/var/log/auth.log
++/var/log/authlog
++/var/log/daemon
++/var/log/maillog
++/var/log/messages
++/var/log/secure
++/var/log/xferlog

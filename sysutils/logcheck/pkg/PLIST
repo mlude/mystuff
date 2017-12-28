@@ -1,0 +1,419 @@
+@comment $OpenBSD$
+@conflict logsentry-*
+@conflict logtail-*
+@newgroup _logcheck:998
+@newuser _logcheck:998:_logcheck:daemon:Logcheck Account:/nonexistent:/sbin/nologin
+bin/logcheck
+bin/logcheck-test
+bin/logtail
+bin/logtail2
+@man man/man1/logcheck-test.1
+@man man/man1/logcheck.1
+@man man/man8/logtail.8
+@man man/man8/logtail2.8
+share/examples/logcheck/
+@sample ${SYSCONFDIR}/logcheck/
+share/examples/logcheck/cracking.d/
+@sample ${SYSCONFDIR}/logcheck/cracking.d/
+share/examples/logcheck/cracking.d/kernel
+@sample ${SYSCONFDIR}/logcheck/cracking.d/kernel
+share/examples/logcheck/cracking.d/rlogind
+@sample ${SYSCONFDIR}/logcheck/cracking.d/rlogind
+share/examples/logcheck/cracking.d/rsh
+@sample ${SYSCONFDIR}/logcheck/cracking.d/rsh
+share/examples/logcheck/cracking.d/smartd
+@sample ${SYSCONFDIR}/logcheck/cracking.d/smartd
+share/examples/logcheck/cracking.d/tftpd
+@sample ${SYSCONFDIR}/logcheck/cracking.d/tftpd
+share/examples/logcheck/cracking.d/uucico
+@sample ${SYSCONFDIR}/logcheck/cracking.d/uucico
+share/examples/logcheck/cracking.ignore.d/
+share/examples/logcheck/ignore.d.paranoid/
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/
+share/examples/logcheck/ignore.d.paranoid/bind
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/bind
+share/examples/logcheck/ignore.d.paranoid/cron
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/cron
+share/examples/logcheck/ignore.d.paranoid/incron
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/incron
+share/examples/logcheck/ignore.d.paranoid/logcheck
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/logcheck
+share/examples/logcheck/ignore.d.paranoid/postfix
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/postfix
+share/examples/logcheck/ignore.d.paranoid/ppp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/ppp
+share/examples/logcheck/ignore.d.paranoid/pureftp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/pureftp
+share/examples/logcheck/ignore.d.paranoid/qpopper
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/qpopper
+share/examples/logcheck/ignore.d.paranoid/squid
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/squid
+share/examples/logcheck/ignore.d.paranoid/ssh
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/ssh
+share/examples/logcheck/ignore.d.paranoid/stunnel
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/stunnel
+share/examples/logcheck/ignore.d.paranoid/sysklogd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/sysklogd
+share/examples/logcheck/ignore.d.paranoid/telnetd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/telnetd
+share/examples/logcheck/ignore.d.paranoid/tripwire
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/tripwire
+share/examples/logcheck/ignore.d.paranoid/usb
+@sample ${SYSCONFDIR}/logcheck/ignore.d.paranoid/usb
+share/examples/logcheck/ignore.d.server/
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/
+share/examples/logcheck/ignore.d.server/acpid
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/acpid
+share/examples/logcheck/ignore.d.server/amandad
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/amandad
+share/examples/logcheck/ignore.d.server/amavisd-new
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/amavisd-new
+share/examples/logcheck/ignore.d.server/anacron
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/anacron
+share/examples/logcheck/ignore.d.server/anon-proxy
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/anon-proxy
+share/examples/logcheck/ignore.d.server/apache
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/apache
+share/examples/logcheck/ignore.d.server/apcupsd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/apcupsd
+share/examples/logcheck/ignore.d.server/arpwatch
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/arpwatch
+share/examples/logcheck/ignore.d.server/asterisk
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/asterisk
+share/examples/logcheck/ignore.d.server/automount
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/automount
+share/examples/logcheck/ignore.d.server/bind
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/bind
+share/examples/logcheck/ignore.d.server/bluez-utils
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/bluez-utils
+share/examples/logcheck/ignore.d.server/courier
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/courier
+share/examples/logcheck/ignore.d.server/cpqarrayd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cpqarrayd
+share/examples/logcheck/ignore.d.server/cpufreqd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cpufreqd
+share/examples/logcheck/ignore.d.server/cron
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cron
+share/examples/logcheck/ignore.d.server/cron-apt
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cron-apt
+share/examples/logcheck/ignore.d.server/cups-lpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cups-lpd
+share/examples/logcheck/ignore.d.server/cvs-pserver
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cvs-pserver
+share/examples/logcheck/ignore.d.server/cvsd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cvsd
+share/examples/logcheck/ignore.d.server/cyrus
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/cyrus
+share/examples/logcheck/ignore.d.server/dcc
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dcc
+share/examples/logcheck/ignore.d.server/ddclient
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ddclient
+share/examples/logcheck/ignore.d.server/dhclient
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dhclient
+share/examples/logcheck/ignore.d.server/dhcp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dhcp
+share/examples/logcheck/ignore.d.server/dictd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dictd
+share/examples/logcheck/ignore.d.server/dkfilter
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dkfilter
+share/examples/logcheck/ignore.d.server/dnsmasq
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dnsmasq
+share/examples/logcheck/ignore.d.server/dovecot
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dovecot
+share/examples/logcheck/ignore.d.server/dropbear
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dropbear
+share/examples/logcheck/ignore.d.server/dspam
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/dspam
+share/examples/logcheck/ignore.d.server/epmd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/epmd
+share/examples/logcheck/ignore.d.server/exim4
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/exim4
+share/examples/logcheck/ignore.d.server/fcron
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/fcron
+share/examples/logcheck/ignore.d.server/ftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ftpd
+share/examples/logcheck/ignore.d.server/git-daemon
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/git-daemon
+share/examples/logcheck/ignore.d.server/gnu-imap4d
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/gnu-imap4d
+share/examples/logcheck/ignore.d.server/gps
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/gps
+share/examples/logcheck/ignore.d.server/grinch
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/grinch
+share/examples/logcheck/ignore.d.server/horde3
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/horde3
+share/examples/logcheck/ignore.d.server/hplip
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/hplip
+share/examples/logcheck/ignore.d.server/hylafax
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/hylafax
+share/examples/logcheck/ignore.d.server/ikiwiki
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ikiwiki
+share/examples/logcheck/ignore.d.server/imap
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/imap
+share/examples/logcheck/ignore.d.server/imapproxy
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/imapproxy
+share/examples/logcheck/ignore.d.server/imp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/imp
+share/examples/logcheck/ignore.d.server/imp4
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/imp4
+share/examples/logcheck/ignore.d.server/innd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/innd
+share/examples/logcheck/ignore.d.server/ipppd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ipppd
+share/examples/logcheck/ignore.d.server/isdnlog
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/isdnlog
+share/examples/logcheck/ignore.d.server/isdnutils
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/isdnutils
+share/examples/logcheck/ignore.d.server/jabberd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/jabberd
+share/examples/logcheck/ignore.d.server/kernel
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/kernel
+share/examples/logcheck/ignore.d.server/klogind
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/klogind
+share/examples/logcheck/ignore.d.server/krb5-kdc
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/krb5-kdc
+share/examples/logcheck/ignore.d.server/libpam-krb5
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/libpam-krb5
+share/examples/logcheck/ignore.d.server/libpam-mount
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/libpam-mount
+share/examples/logcheck/ignore.d.server/logcheck
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/logcheck
+share/examples/logcheck/ignore.d.server/login
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/login
+share/examples/logcheck/ignore.d.server/maradns
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/maradns
+share/examples/logcheck/ignore.d.server/mldonkey-server
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/mldonkey-server
+share/examples/logcheck/ignore.d.server/mon
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/mon
+share/examples/logcheck/ignore.d.server/mountd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/mountd
+share/examples/logcheck/ignore.d.server/nagios
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/nagios
+share/examples/logcheck/ignore.d.server/netconsole
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/netconsole
+share/examples/logcheck/ignore.d.server/nfs
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/nfs
+share/examples/logcheck/ignore.d.server/nntpcache
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/nntpcache
+share/examples/logcheck/ignore.d.server/nscd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/nscd
+share/examples/logcheck/ignore.d.server/nslcd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/nslcd
+share/examples/logcheck/ignore.d.server/openvpn
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/openvpn
+share/examples/logcheck/ignore.d.server/otrs
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/otrs
+share/examples/logcheck/ignore.d.server/passwd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/passwd
+share/examples/logcheck/ignore.d.server/pdns
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/pdns
+share/examples/logcheck/ignore.d.server/perdition
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/perdition
+share/examples/logcheck/ignore.d.server/policyd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/policyd
+share/examples/logcheck/ignore.d.server/popa3d
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/popa3d
+share/examples/logcheck/ignore.d.server/postfix
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/postfix
+share/examples/logcheck/ignore.d.server/postfix-policyd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/postfix-policyd
+share/examples/logcheck/ignore.d.server/ppp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ppp
+share/examples/logcheck/ignore.d.server/pptpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/pptpd
+share/examples/logcheck/ignore.d.server/procmail
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/procmail
+share/examples/logcheck/ignore.d.server/proftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/proftpd
+share/examples/logcheck/ignore.d.server/pure-ftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/pure-ftpd
+share/examples/logcheck/ignore.d.server/pureftp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/pureftp
+share/examples/logcheck/ignore.d.server/qpopper
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/qpopper
+share/examples/logcheck/ignore.d.server/rbldnsd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/rbldnsd
+share/examples/logcheck/ignore.d.server/rpc_statd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/rpc_statd
+share/examples/logcheck/ignore.d.server/rsnapshot
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/rsnapshot
+share/examples/logcheck/ignore.d.server/rsync
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/rsync
+share/examples/logcheck/ignore.d.server/sa-exim
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/sa-exim
+share/examples/logcheck/ignore.d.server/samba
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/samba
+share/examples/logcheck/ignore.d.server/saned
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/saned
+share/examples/logcheck/ignore.d.server/sasl2-bin
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/sasl2-bin
+share/examples/logcheck/ignore.d.server/saslauthd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/saslauthd
+share/examples/logcheck/ignore.d.server/schroot
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/schroot
+share/examples/logcheck/ignore.d.server/scponly
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/scponly
+share/examples/logcheck/ignore.d.server/slapd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/slapd
+share/examples/logcheck/ignore.d.server/smartd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/smartd
+share/examples/logcheck/ignore.d.server/smbd_audit
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/smbd_audit
+share/examples/logcheck/ignore.d.server/smokeping
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/smokeping
+share/examples/logcheck/ignore.d.server/snmpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/snmpd
+share/examples/logcheck/ignore.d.server/snort
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/snort
+share/examples/logcheck/ignore.d.server/spamc
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/spamc
+share/examples/logcheck/ignore.d.server/spamd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/spamd
+share/examples/logcheck/ignore.d.server/squid
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/squid
+share/examples/logcheck/ignore.d.server/ssh
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ssh
+share/examples/logcheck/ignore.d.server/stunnel
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/stunnel
+share/examples/logcheck/ignore.d.server/su
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/su
+share/examples/logcheck/ignore.d.server/sudo
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/sudo
+share/examples/logcheck/ignore.d.server/sympa
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/sympa
+share/examples/logcheck/ignore.d.server/syslogd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/syslogd
+share/examples/logcheck/ignore.d.server/systemd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/systemd
+share/examples/logcheck/ignore.d.server/systemd-timesyncd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/systemd-timesyncd
+share/examples/logcheck/ignore.d.server/teapop
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/teapop
+share/examples/logcheck/ignore.d.server/telnetd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/telnetd
+share/examples/logcheck/ignore.d.server/tftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/tftpd
+share/examples/logcheck/ignore.d.server/thy
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/thy
+share/examples/logcheck/ignore.d.server/ucd-snmp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/ucd-snmp
+share/examples/logcheck/ignore.d.server/upsd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/upsd
+share/examples/logcheck/ignore.d.server/uptimed
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/uptimed
+share/examples/logcheck/ignore.d.server/userv
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/userv
+share/examples/logcheck/ignore.d.server/vsftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/vsftpd
+share/examples/logcheck/ignore.d.server/watchdog
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/watchdog
+share/examples/logcheck/ignore.d.server/wu-ftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/wu-ftpd
+share/examples/logcheck/ignore.d.server/xinetd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.server/xinetd
+share/examples/logcheck/ignore.d.workstation/
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/
+share/examples/logcheck/ignore.d.workstation/automount
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/automount
+share/examples/logcheck/ignore.d.workstation/bind
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/bind
+share/examples/logcheck/ignore.d.workstation/bluetooth-alsa
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/bluetooth-alsa
+share/examples/logcheck/ignore.d.workstation/bluez-utils
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/bluez-utils
+share/examples/logcheck/ignore.d.workstation/bonobo
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/bonobo
+share/examples/logcheck/ignore.d.workstation/dhcpcd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/dhcpcd
+share/examples/logcheck/ignore.d.workstation/francine
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/francine
+share/examples/logcheck/ignore.d.workstation/gconf
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/gconf
+share/examples/logcheck/ignore.d.workstation/gdm
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/gdm
+share/examples/logcheck/ignore.d.workstation/hald
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/hald
+share/examples/logcheck/ignore.d.workstation/hcid
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/hcid
+share/examples/logcheck/ignore.d.workstation/ifplugd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/ifplugd
+share/examples/logcheck/ignore.d.workstation/ippl
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/ippl
+share/examples/logcheck/ignore.d.workstation/kdm
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/kdm
+share/examples/logcheck/ignore.d.workstation/kernel
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/kernel
+share/examples/logcheck/ignore.d.workstation/laptop-mode-tools
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/laptop-mode-tools
+share/examples/logcheck/ignore.d.workstation/libmtp-runtime
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/libmtp-runtime
+share/examples/logcheck/ignore.d.workstation/libpam-gnome-keyring
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/libpam-gnome-keyring
+share/examples/logcheck/ignore.d.workstation/logcheck
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/logcheck
+share/examples/logcheck/ignore.d.workstation/login
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/login
+share/examples/logcheck/ignore.d.workstation/net-acct
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/net-acct
+share/examples/logcheck/ignore.d.workstation/nntpcache
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/nntpcache
+share/examples/logcheck/ignore.d.workstation/polypaudio
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/polypaudio
+share/examples/logcheck/ignore.d.workstation/postfix
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/postfix
+share/examples/logcheck/ignore.d.workstation/ppp
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/ppp
+share/examples/logcheck/ignore.d.workstation/proftpd
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/proftpd
+share/examples/logcheck/ignore.d.workstation/pump
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/pump
+share/examples/logcheck/ignore.d.workstation/sendfile
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/sendfile
+share/examples/logcheck/ignore.d.workstation/slim
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/slim
+share/examples/logcheck/ignore.d.workstation/squid
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/squid
+share/examples/logcheck/ignore.d.workstation/udev
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/udev
+share/examples/logcheck/ignore.d.workstation/wdm
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/wdm
+share/examples/logcheck/ignore.d.workstation/winbind
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/winbind
+share/examples/logcheck/ignore.d.workstation/wpasupplicant
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/wpasupplicant
+share/examples/logcheck/ignore.d.workstation/xdm
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/xdm
+share/examples/logcheck/ignore.d.workstation/xlockmore
+@sample ${SYSCONFDIR}/logcheck/ignore.d.workstation/xlockmore
+share/examples/logcheck/logcheck.conf
+@sample ${SYSCONFDIR}/logcheck/logcheck.conf
+share/examples/logcheck/logcheck.logfiles
+@sample ${SYSCONFDIR}/logcheck/logcheck.logfiles
+share/examples/logcheck/logcheck.logfiles.d/
+share/examples/logcheck/violations.d/
+@sample ${SYSCONFDIR}/logcheck/violations.d/
+share/examples/logcheck/violations.d/kernel
+@sample ${SYSCONFDIR}/logcheck/violations.d/kernel
+share/examples/logcheck/violations.d/logcheck
+@sample ${SYSCONFDIR}/logcheck/violations.d/logcheck
+share/examples/logcheck/violations.d/smartd
+@sample ${SYSCONFDIR}/logcheck/violations.d/smartd
+share/examples/logcheck/violations.d/su
+@sample ${SYSCONFDIR}/logcheck/violations.d/su
+share/examples/logcheck/violations.d/sudo
+@sample ${SYSCONFDIR}/logcheck/violations.d/sudo
+share/examples/logcheck/violations.ignore.d/
+@sample ${SYSCONFDIR}/logcheck/violations.ignore.d/
+share/examples/logcheck/violations.ignore.d/logcheck-su
+@sample ${SYSCONFDIR}/logcheck/violations.ignore.d/logcheck-su
+share/examples/logcheck/violations.ignore.d/logcheck-sudo
+@sample ${SYSCONFDIR}/logcheck/violations.ignore.d/logcheck-sudo
+share/logtail/
+share/logtail/detectrotate/
+share/logtail/detectrotate/10-savelog.dtr
+share/logtail/detectrotate/20-logrotate.dtr
+share/logtail/detectrotate/30-logrotate-dateext.dtr
+@owner _logcheck
+@group _logcheck
+@sample /var/cache/logcheck/
