@@ -1,0 +1,4 @@
+@comment $OpenBSD$
+${P5SITE}/Proc/
+${P5SITE}/Proc/WaitStat.pm
+@man man/man3p/Proc::WaitStat.3p
