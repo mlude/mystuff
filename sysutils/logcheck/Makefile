@@ -2,7 +2,7 @@
 
 COMMENT =		check log files for anomalies
 
-V =			1.3.18
+V =			1.3.19
 DISTNAME =		logcheck_${V}
 PKGNAME =		logcheck-${V}
 
