@@ -4,7 +4,7 @@ COMMENT =	construct and optionally mail MIME messages
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	mime-construct-1.9
+DISTNAME =	mime-construct-1.11
 PKGNAME =	${DISTNAME}
 CATEGORIES =	mail
 
