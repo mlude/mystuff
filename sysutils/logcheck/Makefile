@@ -2,7 +2,7 @@
 
 COMMENT =		check log files for anomalies
 
-V =			1.3.19
+V =			1.3.20
 DISTNAME =		logcheck_${V}
 PKGNAME =		logcheck-${V}
 
@@ -24,7 +24,7 @@ RUN_DEPENDS =		mail/mime-construct \
 			sysutils/lockfile
 
 NO_BUILD =		Yes
-WRKDIST =		${WRKDIR}/${DISTNAME:S/_/-/}
+WRKDIST =		${WRKDIR}/logcheck
 
 DTR =			10-savelog 20-logrotate 30-logrotate-dateext
 

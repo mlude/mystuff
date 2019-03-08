@@ -1,4 +1,4 @@
-@comment $OpenBSD$
+@comment $OpenBSD: PLIST,v$
 @conflict logsentry-*
 @conflict logtail-*
 @newgroup _logcheck:998

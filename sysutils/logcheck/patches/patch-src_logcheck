@@ -7,8 +7,8 @@ Index: src/logcheck
 -#!/usr/bin/env bash
 +#!/usr/local/bin/bash
  #
- # Copyright (C) 2004-2012,2014,2017 Debian Logcheck Team
- #                                   <logcheck-devel@alioth.lists.debian.org>
+ # Copyright (C) 2004-2012,2014,2017-2019 Debian Logcheck Team
+ #                                        <logcheck@packages.debian.org>
 @@ -24,20 +24,13 @@
  
  if [ `id -u` = 0 ]; then
@@ -47,7 +47,7 @@ Index: src/logcheck
  CAT="/bin/cat"
  SYSLOG_SUMMARY="/usr/bin/syslog-summary"
  
-@@ -90,22 +83,17 @@ FQDN=0
+@@ -91,22 +84,17 @@ FQDN=0
  SORTUNIQ=0
  SUPPORT_CRACKING_IGNORE=0
  SYSLOGSUMMARY=0
@@ -74,7 +74,7 @@ Index: src/logcheck
      if [ -d "$TMPDIR" ]; then
          # Remove the tmp directory
          if [ "$NOCLEANUP" -eq 0 ];then
-@@ -145,14 +133,9 @@ error() {
+@@ -146,14 +134,9 @@ error() {
      if [ "$2" = "noclean" ]; then
  	debug "error: Not removing lockfile"
      else
@@ -92,7 +92,7 @@ Index: src/logcheck
         fi
  
      fi
-@@ -223,12 +206,12 @@ cleanrules() {
+@@ -224,12 +207,12 @@ cleanrules() {
  			error "Couldn't read $x"
  		fi
  	done
@@ -107,7 +107,7 @@ Index: src/logcheck
  			>> "$cleaned/$rulefile" \
  		|| error "Couldn't append to $cleaned/$rulefile."
  	    fi
-@@ -330,7 +313,7 @@ greplogoutput() {
+@@ -331,7 +314,7 @@ greplogoutput() {
  	debug "greplogoutput: $grepfile"
  
  	# Raise entries that match
@@ -116,7 +116,7 @@ Index: src/logcheck
  	    > "$TMPDIR/checked" \
  	    || error "Could not output to $TMPDIR/checked."
  
-@@ -407,7 +390,7 @@ cleanchecked() {
+@@ -408,7 +391,7 @@ cleanchecked() {
  
      if [ -f "$clean" ]; then
  	debug "cleanchecked - file: $clean"
@@ -125,7 +125,7 @@ Index: src/logcheck
  	    || error "Could not output to $TMPDIR/checked.1."
  	mv "$TMPDIR/checked.1" "$TMPDIR/checked" \
  	    || error "Could not move $TMPDIR/checked.1 to $TMPDIR/checked"
-@@ -415,7 +398,7 @@ cleanchecked() {
+@@ -416,7 +399,7 @@ cleanchecked() {
  	debug "cleanchecked - dir - $clean"
  	for file in $(ls -1 "$clean/"); do
  	debug "cleanchecked - dir - $clean/$file"
@@ -134,7 +134,7 @@ Index: src/logcheck
  		>> "$TMPDIR/checked.1" \
  		    || error "Could not output to TMPDIR/checked.1."
  	    mv "$TMPDIR/checked.1" "$TMPDIR/checked" \
-@@ -538,9 +521,9 @@ fi
+@@ -546,9 +529,9 @@ fi
  
  # Hostname either fully qualified or not.
  if [ "$FQDN" -eq 1 ]; then
@@ -146,7 +146,7 @@ Index: src/logcheck
  fi
  
  # Now check for the other options
-@@ -623,25 +606,20 @@ fi
+@@ -631,25 +614,20 @@ fi
  
  trap 'cleanup' 0
  
@@ -176,7 +176,7 @@ Index: src/logcheck
  fi
  
  # Create the secure temporary directory or exit
-@@ -675,7 +653,7 @@ if [ ! "$LOGFILE" ] && [ -n "$LOGFILES" ]; then
+@@ -683,7 +661,7 @@ if [ ! "$LOGFILE" ] && [ -n "$LOGFILES" ]; then
      SAVEIFS=$IFS; IFS=$(echo -en "\n\b");
      for file_list in ${LOGFILES} ; do
          if [ -f  "$file_list" ] ; then
