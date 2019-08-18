@@ -13,7 +13,7 @@ HOMEPAGE =		http://logcheck.alioth.debian.org/
 MAINTAINER =		Markus Lude <markus.lude@gmx.de>
 
 # GPLv2
-PERMIT_PACKAGE_CDROM =	Yes
+PERMIT_PACKAGE =	Yes
 
 MASTER_SITES =		http://ftp.de.debian.org/debian/pool/main/l/logcheck/
 
