@@ -17,7 +17,7 @@ HOMEPAGE =	http://www.argon.org/~roderick/
 MAINTAINER =	Markus Lude <markus.lude@gmx.de>
 
 # GPLv2+
-PERMIT_PACKAGE_CDROM =  Yes
+PERMIT_PACKAGE = Yes
 
 CPAN_AUTHOR =	ROSCH
 
